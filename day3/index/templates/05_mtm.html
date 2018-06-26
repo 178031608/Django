@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>作者信息:</h1>
+    <h3>姓名:{{author.names}}</h3>
+    <h3>邮箱:{{author.email}}</h3>
+
+    <h1>出版的所有书籍：</h1>
+    {% for book in books %}
+        <h3>书名:{{book.title}}</h3>
+        <h3>出版时间:{{book.publicate_data}}</h3>
+    {% endfor %}
+
+    <h1>书籍信息:</h1>
+    <h3>书名：{{book.title}}</h3>
+    <h3>出版是时间：{{book.publicate_data}}</h3>
+    <h3>所有作者:</h3>
+    {% for au in authors%}
+        <h3>姓名:{{au.names}}</h3>
+        <h3>邮箱:{{au.email}}</h3>
+    {% endfor %}
+
+    <h1>出版社包含作者信息:</h1>
+        <h3>出版社:{{publisher.name}}</h3>
+        {% for hanhan in hanhans%}
+            <h3>作者：{{hanhan.names}}</h3>
+        {% endfor %}
+    <h1>作者包含出版社信息:</h1>
+    <h3>作者：{{hanhan.names}}</h3>
+    {% for publisher in publishers %}
+        <h3>出版社:{{publisher.name}}</h3>
+    {% endfor %}
+</body>
+</html>

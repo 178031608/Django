@@ -1,0 +1,52 @@
+{% extends 'login.html' %}
+
+{% block hTitle %}
+天天果园-会员注册
+{% endblock %}
+
+{% block title %}
+注册会员
+{% endblock %}
+{% block anchor %}
+    <a href="{% url 'login' %}">会员登录></a>
+{% endblock %}
+{% block form %}
+    <div id="login" >
+        <form action="zhuce" method="post">
+        <div class="form-line">
+            <p>手机号</p>
+            <input type="text"  name='zphone' class="form-control">
+        </div>
+        <div class="form-line">
+            <p>密码</p>
+            <input type="password" name="zpwd" class="form-control" placeholder="请输入6-20位号码字符">
+        </div>
+        <div class="form-line">
+            <p>确认密码</p>
+            <input type="password" name="zpwd1" class="form-control" placeholder="请输入6-20位号码字符">
+        </div>
+        <div class="form-line">
+            <p>用户名</p>
+            <input type="text" name="uname" class="form-control">
+        </div>
+        <div class="form-line">
+            <p>邮箱</p>
+            <input type="email" name="uemail" class="form-control">
+        </div>
+        <div class="form-line">
+            <p></p>
+            <div>
+                <a href="{% url 'login' %}" class="goReg">会员登录</a>
+                <input type="submit" value="注册" class="btnLogin">
+            </div>
+        </div>
+    </form>
+    </div>
+{% endblock %}
+{% block style %}
+<style>
+    #login{
+        margin-top:15px;
+    }
+</style>
+{% endblock %}
