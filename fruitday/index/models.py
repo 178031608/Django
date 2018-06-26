@@ -23,6 +23,7 @@ class GoodsType(models.Model):
 class Goods(models.Model):
     title = models.CharField(max_length=20)
     price = models.DecimalField(max_digits=7,decimal_places=2)
+    unit = models.CharField(max_length=20,null=True)
     #spec详细说明
     spec = models.CharField(max_length=50)
     picture = models.ImageField(upload_to='staic/upload/goods')
