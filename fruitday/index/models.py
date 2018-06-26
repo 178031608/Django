@@ -27,6 +27,8 @@ class Goods(models.Model):
     spec = models.CharField(max_length=50)
     picture = models.ImageField(upload_to='staic/upload/goods')
     isActive = models.BooleanField(default=True)
+    #　设置对goodstype的引用(1:M)
+    goodsType = models.ForeignKey(GoodsType, null=True)
     
     #修改后台页面中每个对象的名字
     def __str__(self):

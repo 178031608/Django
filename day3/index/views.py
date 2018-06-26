@@ -163,10 +163,16 @@ def mtm_views(request):
     book = Book.objects.get(id=18)
     authors = book.author_set.all()
     #查询韩寒的签约出版社
-    hanhan = Author.objects.get(id=22)
+    hanhan = Author.objects.get(names='韩寒')
     publishers = hanhan.pusher.all()
     print(hanhan)
-    publisher = Publisher.objects.get(id=10)
+    #查询北京大学出版社下所有的作者
+    publisher = Publisher.objects.get(name='北京大学出版社')
     hanhans = publisher.author_set.all()
     print(hanhans)
     return render(request,'05_mtm.html',locals())
+
+
+def obj_views(request):
+    count = Author.objects.auCount()
+    return HttpResponse(count)

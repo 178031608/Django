@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@localhost" uuid="2c982f0d-c409-485c-bcce-13f17a498606">
+    <data-source source="LOCAL" name="fruitday" uuid="2c982f0d-c409-485c-bcce-13f17a498606">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <configured-by-url>true</configured-by-url>
@@ -16,7 +16,7 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="webdb@localhost" uuid="a820caf0-6ba8-4318-9148-57d2fd685707">
+    <data-source source="LOCAL" name="webdb" uuid="a820caf0-6ba8-4318-9148-57d2fd685707">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
