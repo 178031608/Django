@@ -6,17 +6,18 @@
 </head>
 <body>
     <form action="" method="post">
+        {% csrf_token %}
         <p>
             姓名：
-            <input type="text" name="names" value="{{au.names}}">
+            <input type="text" name="uname" value="{{au.names}}">
         </p>
         <p>
             年龄:
-            <input type="number" name="age" value="{{au.age}}">
+            <input type="number" name="uage" value="{{au.age}}">
         </p>
         <p>
             邮箱:
-            <input type="email" name="email" value="{{au.email}}">
+            <input type="email" name="uemail" value="{{au.email}}">
         </p>
         <p>
             <input type="submit" value="修改">

@@ -114,6 +114,16 @@ def delete_views(request, num1):
 # 关于修改数据
 def upshow_views(request, id):
 	# 根据id查询指定Author的信息
+	# au = Author.objects.get(id=id)
+	# print(request.method)
+	if request.method != 'GET':
+		uname = request.POST['uname']
+		uage = request.POST['uage']
+		uemail = request.POST['uemail']
+		print(uname,uage,uemail)
+		Author.objects.filter(id=id).update(names=uname,age=uage,email=uemail)
+		return HttpResponseRedirect('/03_aulist/')
+	
 	au = Author.objects.get(id=id)
 	return render(request, '02_update.html', locals())
 
