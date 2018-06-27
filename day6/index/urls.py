@@ -7,5 +7,6 @@ urlpatterns = [
 	url(r'^03_get/$', get_views),
 	url(r'^04_query/', query_views),
 	url(r"05_form/$",form_views),
-
+	url(r'06_register',register_views),
+	url(r"07_modelForm/$",modelForm_views),
 ]

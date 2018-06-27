@@ -1,4 +1,5 @@
 from django import forms
+from .models import *
 
 # 为topic下拉列表初始化一组数据，　－　元祖
 # - > <option value='level1'>好评</option>
@@ -24,3 +25,25 @@ class RemarkForm(forms.Form):
 	topic = forms.ChoiceField(label='评价', choices=TOPIC_CHOICE)
 	# ５.创建isSave属性，表示是否保存，显示一个复选狂
 	isSave = forms.BooleanField(label='是否保存')
+
+
+class RegisterForm(forms.Form):
+	uname = forms.CharField(label='用户名称')
+	upwd = forms.CharField(label='用户密码', widget=forms.PasswordInput)
+	uemail = forms.EmailField(label='电子邮箱')
+	uage = forms.IntegerField(label='年龄')
+
+
+class LoginForm(forms.ModelForm):
+	# 创建内部类Meta
+	class Meta:
+		# 关联的Models
+		model = Users()
+		# 定义要生成控件的属性们
+		# fields = "__all__"
+		fields = ['uname', 'upwd']
+		# 每个控件对应的label
+		labels = {
+			"uname": "用户名称",
+			"upwd": "用户密码",
+		}

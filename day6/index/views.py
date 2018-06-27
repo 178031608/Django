@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import *
+from .models import *
 
 # Create your views here.
 
@@ -55,3 +56,18 @@ def form_views(request):
 			#通过cleaned_data取值
 			cd = form.cleaned_data
 			return HttpResponse(cd['subject']+cd['email'])
+		
+def register_views(request):
+	if request.method == 'GET':
+		form = RegisterForm()
+		return render(request,'05_register.html',locals())
+	else:
+		form = RegisterForm(request.POST)
+		if form.is_valid():
+			cd = form.cleaned_data
+			users = Users(**cd)
+			users.save()
+			return HttpResponse('Register OK')
+		
+def modelForm_views(request):
+	pass
