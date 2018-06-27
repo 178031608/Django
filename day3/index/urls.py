@@ -23,5 +23,6 @@ urlpatterns = [
 	# http://localhost:8000/11_mtm/
 	url(r'^11_mtm/$', mtm_views),
 	url(r'^12_obj/$', obj_views),
+	url(r'^13_update/$',update_views, name='update')
 
 ]

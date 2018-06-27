@@ -116,17 +116,30 @@ def upshow_views(request, id):
 	# 根据id查询指定Author的信息
 	# au = Author.objects.get(id=id)
 	# print(request.method)
-	if request.method != 'GET':
-		uname = request.POST['uname']
-		uage = request.POST['uage']
-		uemail = request.POST['uemail']
-		print(uname,uage,uemail)
-		Author.objects.filter(id=id).update(names=uname,age=uage,email=uemail)
-		return HttpResponseRedirect('/03_aulist/')
+	# if request.method != 'GET':
+	# 	uname = request.POST['uname']
+	# 	uage = request.POST['uage']
+	# 	uemail = request.POST['uemail']
+	# 	print(uname,uage,uemail)
+	# 	Author.objects.filter(id=id).update(names=uname,age=uage,email=uemail)
+	# 	return HttpResponseRedirect('/03_aulist/')
 	
 	au = Author.objects.get(id=id)
 	return render(request, '02_update.html', locals())
 
+
+def update_views(request):
+	id = request.POST['uid']
+	names = request.POST['uname']
+	age = request.POST['uage']
+	email = request.POST['uemail']
+	au = Author.objects.get(id=id)
+	au.names = names
+	au.age = age
+	au.email =  email
+	au.save()
+	return HttpResponseRedirect('/03_aulist/')
+	
 
 # 更新所有人的年龄
 def upage_views(request):

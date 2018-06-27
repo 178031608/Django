@@ -5,11 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="{%url 'update' %}" method="post">
         {% csrf_token %}
         <p>
             姓名：
             <input type="text" name="uname" value="{{au.names}}">
+            <!--　隐藏与：需要提交给后台但不幸给用户看得的数据 -->
+            <input type="hidden" name="uid" value="{{au.id}}">
         </p>
         <p>
             年龄:

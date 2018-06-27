@@ -6,4 +6,5 @@ urlpatterns = [
 	url(r'^02_login/$',login_views),
 	url(r'^03_get/$', get_views),
 	url(r'^04_query/', query_views)
+
 ]
