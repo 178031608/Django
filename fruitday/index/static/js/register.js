@@ -1,0 +1,5 @@
+$(function () {
+    $('frmList').submit(function(){
+
+    });
+});

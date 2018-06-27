@@ -1,7 +1,14 @@
 {% extends 'login.html' %}
+{% load static %}
 
 {% block hTitle %}
 天天果园-会员注册
+{% endblock %}
+
+<!-- 导入js -->
+{% block style %}
+<script src="{% static 'js/jquery-1.11.3.js' %}"></script>
+<script src="{% static 'js/register.js'%}"></script>
 {% endblock %}
 
 {% block title %}
@@ -12,7 +19,7 @@
 {% endblock %}
 {% block form %}
     <div id="login" >
-        <form action="zhuce" method="post">
+        <form action="zhuce" method="post" id="frmList">
         <div class="form-line">
             <p>手机号</p>
             <input type="text"  name='zphone' class="form-control">
