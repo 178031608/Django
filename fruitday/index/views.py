@@ -18,13 +18,17 @@ def register_views(request):
 		name=request.POST['uname']
 		#用户输入的邮箱
 		email = request.POST['uemail']
-		phones = Users.objects.all()
-		for phon in phones:
-			if phone == phon.uphone:
-				sms = '手机号已被注册'
-			else:
+		#判断用户是否存在，存在返回１,否则返回0
+		phones = Users.objects.filter(uphone=phone)
+		if phones:
+			errmsg = '手机号已被注册'
+			return render(request,'register.html',locals())
+		else:
+			try:
 				obj = Users(uphone=phone,upwd=pwd,uname=name,uemail=email)
 				obj.save()
+			except:
+				errmsg = '注册失败'
 			return HttpResponse('OK')
 		
 	return render(request, 'register.html',locals())

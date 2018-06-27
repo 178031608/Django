@@ -7,7 +7,6 @@ $(function () {
         var zemail = $('[name = zemail]').val();
        if(zphone.length==0 ||zpwd.length==0 ||zpwd1.length==0 ||zname.length==0 ||zemail.length==0 ){
            return false;
-
        }
        return true;
     });
