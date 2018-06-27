@@ -27,3 +27,18 @@ def login_views(request):
 		upwd = request.POST['upwd']
 		print(uname,upwd)
 		return HttpResponse('用户名:'+uname+', 密码：'+upwd)
+
+
+def get_views(request):
+	uname = request.GET.get('uname','')
+	upwd = request.GET.get('upwd','')
+	
+	if uname and upwd:
+		return  HttpResponse('用户名:'+uname+'密码:'+upwd)
+	else:
+		return  render(request,'03_login.html')
+	
+def query_views(request):
+	id = request.GET.get('id','')
+	name = request.GET.get('name','')
+	return HttpResponse('id:'+id+'name:'+name)
