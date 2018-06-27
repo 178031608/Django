@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .forms import *
 
 # Create your views here.
 
@@ -42,3 +42,16 @@ def query_views(request):
 	id = request.GET.get('id','')
 	name = request.GET.get('name','')
 	return HttpResponse('id:'+id+'name:'+name)
+
+def form_views(request):
+	if request.method == 'GET':
+		form = RemarkForm()
+		return render(request,'04_form.html', locals())
+	else:
+		#将post的数据交给RemarkForm()
+		form = RemarkForm(request.POST)
+		#要通过验证
+		if form.is_valid():
+			#通过cleaned_data取值
+			cd = form.cleaned_data
+			return HttpResponse(cd['subject']+cd['email'])
