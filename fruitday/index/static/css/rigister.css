@@ -1,0 +1,27 @@
+#login{
+        margin-top:5px;
+    }
+
+#login div.form-line1{
+	margin-left:94px;
+	height:20px;
+    font-size:14px;
+    color:red;
+}
+#login div.form-line2{
+
+	height:40px;
+}
+
+#login div.form-line2>p{
+	/*左浮动，文字大小：16px，文本颜色，宽度，文本右对齐*/
+	float:left;
+	font-size:16px;
+	color:#999;
+	width:64px;/*每个文字16px，按4个文字设置*/
+	text-align:right;
+	/*有外边距，行高，高度*/
+	margin-right:30px;
+	line-height:40px;
+	height:40px;
+}

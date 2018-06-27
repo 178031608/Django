@@ -6,9 +6,10 @@
 {% endblock %}
 
 <!-- 导入js -->
-{% block style %}
-<script src="{% static 'js/jquery-1.11.3.js' %}"></script>
-<script src="{% static 'js/register.js'%}"></script>
+{% block style1 %}
+    <link rel='stylesheet' href="{% static 'css/rigister.css'%}">
+    <script src="{% static 'js/jquery-1.11.3.js' %}"></script>
+    <script src="{% static 'js/register.js'%}"></script>
 {% endblock %}
 
 {% block title %}
@@ -19,12 +20,18 @@
 {% endblock %}
 {% block form %}
     <div id="login" >
-        <form action="zhuce" method="post" id="frmList">
+        <form action="{% url 'register' %}" method="post" id="frmList">
+            {% csrf_token %}
         <div class="form-line">
             <p>手机号</p>
             <input type="text"  name='zphone' class="form-control">
         </div>
-        <div class="form-line">
+
+            <div class="form-line1">
+                {% if sms %}{{sms}}{% endif %}</div>
+
+
+        <div class="form-line2">
             <p>密码</p>
             <input type="password" name="zpwd" class="form-control" placeholder="请输入6-20位号码字符">
         </div>
@@ -49,11 +56,4 @@
         </div>
     </form>
     </div>
-{% endblock %}
-{% block style %}
-<style>
-    #login{
-        margin-top:15px;
-    }
-</style>
 {% endblock %}
