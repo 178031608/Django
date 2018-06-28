@@ -70,4 +70,8 @@ def register_views(request):
 			return HttpResponse('Register OK')
 		
 def modelForm_views(request):
-	pass
+	if request.method == 'GET':
+		form = LoginForm()
+		return render(request, '06_login.html', locals())
+	else:
+		pass

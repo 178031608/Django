@@ -38,7 +38,7 @@ class LoginForm(forms.ModelForm):
 	# 创建内部类Meta
 	class Meta:
 		# 关联的Models
-		model = Users()
+		model = Users
 		# 定义要生成控件的属性们
 		# fields = "__all__"
 		fields = ['uname', 'upwd']

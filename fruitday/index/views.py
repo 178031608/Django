@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from .models import *
 from django.http import HttpResponse
+from .forms import *
 
 # Create your views here.
 
 def login_views(request):
-	return render(request, 'login.html')
+	form = LoginForm()
+	return render(request, 'login.html',locals())
 
 
 def register_views(request):

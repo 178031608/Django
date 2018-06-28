@@ -38,19 +38,27 @@
 			<form action="{% url 'login'%}" method="post" id="frmLogin">
                 {% csrf_token %}
 				<!-- 第一行：手机号 -->
-				<div class="form-line">
-					<p>手机号</p>
-					<div>
-						<input type="text" name="uphone" class="form-control">
-					</div>
-				</div>
+				<!--<div class="form-line">-->
+					<!--<p>手机号</p>-->
+					<!--<div>-->
+						<!--<input type="text" name="uphone" class="form-control">-->
+					<!--</div>-->
+				<!--</div>-->
 				<!-- 第二行：密码 -->
-				<div class="form-line">
-					<p>密码</p>
-					<div>
-						<input type="password" name="upwd" class="form-control" placeholder="请输入6-20位号码字符">
-                    </div>
-				</div>
+				<!--<div class="form-line">-->
+					<!--<p>密码</p>-->
+					<!--<div>-->
+						<!--<input type="password" name="upwd" class="form-control" placeholder="请输入6-20位号码字符">-->
+                    <!--</div>-->
+				<!--</div>-->
+                {% for field in form %}
+                    <div class="form-line">
+					    <p>{{field.label}}</p>
+                        <div>
+                           {{field}}
+                        </div>
+				    </div>
+                {% endfor %}
 				<!-- 第三行：记住密码 忘记密码 -->
 				<div class="form-line">
 					<p></p>
